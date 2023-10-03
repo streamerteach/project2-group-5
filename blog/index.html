@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vi lär oss vueJS</title>
     <link rel="stylesheet" href="style.css"> <!-- CSS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
-    <section> <!-- Section har max bredd 800px (undantag mobil/pad) -->
+    <section id="app"> <!-- Section har max bredd 800px (undantag mobil/pad) -->
 
         <header> <!-- Logo och meny i headern, logon länkar till splash -->
             <a href="./"><img id="logo" src="logo.svg" alt="DenApp" /></a>
@@ -22,8 +23,9 @@
         </header>
 
         <article> <!-- Artiklar placerar sig snyggt efter varann -->
-            <h1>Bloggen</h1>
-            <p>Hej och välkommen till min sida</p>
+            <blog></blog>
+            <blog></blog>
+            <blog></blog>
         </article>
 
         <article> <!-- Artiklar placerar sig snyggt efter varann -->
@@ -36,4 +38,5 @@
     <footer>Made by denöu</footer>
     
 </body>
+<script src="script.js"></script> <!-- JS -->
 </html>

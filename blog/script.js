@@ -1,20 +1,24 @@
-Vue.component('email-komponent', {
-    template: '<input type="email" v-model="email">', // sparade 5 tecken?
-    data: function () {
-        return {
-            email: 'bistromd@arcada.fi' //vm.email two way data bound!
-        }
-    }
-});
+let app = Vue.createApp({
 
-var vm = new Vue({
-    el: '#app', // root element selector
-    data: {
-        submitted: false
-    },
-    methods: {
-        process: function () {
-            this.submitted = true; // modifiera instansdata med metoder
+    data() {
+        return {
+            visible: true
         }
     }
-});
+})
+
+
+app.component("blog", {
+template: '<article> <h1> {{title}} </h1> <br> <p>{{content}}</p> <article>',
+    
+    data() {
+        return {
+            title: "Välkommen till min blogg",
+            content: "good content",
+        }
+    },
+})
+
+
+
+app.mount("#app") //montera appen i DOM
