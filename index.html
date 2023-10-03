@@ -12,9 +12,11 @@
     <div id="app">
         <h1>{{greeting}}</h1>
         <form v-if="visible">
-            <label for="email">Email:</label>
-            <input type="email" v-model="email">
-            <button type="submit" @click.prevent="submitForm">Sign up!</button>
+            <email-box></email-box>
+            <email-box></email-box>
+            <email-box></email-box>
+
+            <submit-button></submit-button>
         </form>
     </div>
 </body>
@@ -26,19 +28,27 @@
                 email: "hansenjo@arcada.fi",
                 visible: true
             }
-        },
+        }
+    })
+    app.component("submit-button", {
+        template: '<button type="submit" @click.prevent="submitForm">Sign up!</button>',
         methods: {
             submitForm() {
                 console.log("Form submitted!")
-                this.visible= false
+                this.$root.visible = false
             }
         }
     })
-    app.component("submit-button",{
-        template: '<button type="submit" @click.prevent="submitForm">Sign up!</button>'
+    app.component("email-box", {
+        template: '<label for="email">Email:</label> <input type="email" v-model="email"> <br><br>',
+        data() {
+            return {
+                email: this.$root.email
+            }
+        },
     })
     app.mount("#app")
-    
+
 </script>
 
 </html>
