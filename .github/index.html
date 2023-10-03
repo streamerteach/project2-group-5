@@ -2,38 +2,50 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>hehehehe</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 
 <body>
     <div id="app">
-        <h1 v-if="state">{{greeting}} </h1>
-        
-            <label for="email" v-if="state" >Email:</label>
-            <input type="email" v-model="email" v-if="state==1">
-            <h2 v-if="state==1"></h2>
-            <h2 v-else-if="state==2">Are you sure??</h2>
-            <h2 v-else-if="3">Thanks for signing up!</h2>
-       
-            <button @click="state += 1" >Skicka</button>
-        
+        <h1> {{greeting}} </h1>
+
+        <form v-if="visible">
+            <label for="email">Email:</label>
+            <input type="email" v-model="email">
+
+            <button type="submit" @click.prevent="submitForm">Skicka</button> <!--Kör submitform, preventDefault()-->
+        </form>
+        <h2 v-else>Nu får du spam från dedma</h2>
     </div>
 </body>
 
 <script>
-    const App = {
+    let = app = Vue.createApp({
+       
         data() {
             return {
                 greeting: "Tjenare tjenare",
                 email: "boijersi@arcada.fi",
-                visible: true,
-                state: 1
+                visible: true
+            }
+        },
+        methods: {
+            submitForm() {
+                console.log("Yo")
+                this.visible = false;
+            },
+
+            rage() {
+                console.log("enough is enough")
             }
         }
-    }
+    
+
+    })
+
+    app.mount("#app")
+   
     const vm = Vue.createApp(App).mount("#app")
 </script>
 
