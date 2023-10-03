@@ -13,7 +13,7 @@
         <form v-if="visible">
             <label for="email">Email:</label>
             <input type="email" v-model="email">
-
+            <submit-button></submit-button>
             
         </form>
         <h2 v-else>Nu får du spam från dedma</h2>
@@ -30,20 +30,19 @@
                 visible: true
             }
         },
+        
+    })
+
+    app.component("submit-button", {
+        template: '<button type="submit" @click.prevent="submitForm">Skicka</button>',
+
         methods: {
             submitForm() {
                 console.log("Yo")
                 this.visible = false;
-            },
-
-            rage() {
-                console.log("enough is enough")
             }
-        }
-    })
 
-    app.compontent("submit-button", {
-        template: '<button type="submit" @click.prevent="submitForm">Skicka</button> <!--Kör submitform, preventDefault()-->'
+        }
     })
     app.mount("#app")
 
