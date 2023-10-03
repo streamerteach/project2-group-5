@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hehehehe</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-if="state">{{greeting}} </h1>
+        
+            <label for="email" v-if="state" >Email:</label>
+            <input type="email" v-model="email" v-if="state==1">
+            <h2 v-if="state==1"></h2>
+            <h2 v-else-if="state==2">Are you sure??</h2>
+            <h2 v-else-if="3">Thanks for signing up!</h2>
+       
+            <button @click="state += 1" >Skicka</button>
+        
+    </div>
+</body>
+
+<script>
+    const App = {
+        data() {
+            return {
+                greeting: "Tjenare tjenare",
+                email: "boijersi@arcada.fi",
+                visible: true,
+                state: 1
+            }
+        }
+    }
+    const vm = Vue.createApp(App).mount("#app")
+</script>
+
+</html>
