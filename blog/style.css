@@ -1,0 +1,110 @@
+@charset "utf-8";
+
+/* Här är sidhuvudet */
+header {
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+    display: flex;          /* Förälder till nav */
+    align-items: center;    /* Centrerar på höjden */
+    padding: 6px 6px;       /* Shorthand, uppe & nere samt vänster & höger */
+}
+header a {
+    text-decoration: none;  /* Remove underline */
+    color: white;
+}
+/* Id i css med # */
+#logo {
+    /* Fallback för ifall bilder är avstängda, så står de ändå DenApp */
+    font-size: xx-large;    line-height: 1.8em;
+}
+
+
+/* Menyn */
+nav {
+    margin-left: auto;  /* Skuffar menyn till högra kanten */
+}
+nav ul {
+    padding-left: 0px;  /* Bort med inbyggd padding så att mobila menyn blir under logon */
+    margin: 0px 20px;   /* Ta bort inbyggd margin + lite space till höger och vänster */
+}
+nav li {
+    list-style: none;   /* Bort med bollar */
+    float: left;        /* Horisontell meny */
+    padding: 10px;      /* Space för hovereffekt */
+    margin: 0px 5px;    /* Space mellan länkar */
+    border-radius: 5px; /* Hovereffekts runda kanter */
+}
+nav li:hover {
+    background-color: #00AA89; /* Hovereffekt */
+}
+
+
+/* Stilen på sidans kropp och innehåll */
+html {
+    height: 100%;                     /* Ta upp hela skärmen */
+}
+body {
+    margin: 0;                        /* bort med inbyggd margin */
+    background-color: #3D3D3D;      /* bakgrund syns bara på desktop */
+    /* ifall ni har custom font, fallback to web-safe */
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; 
+    height: 100%;
+}
+section {
+    color: #3D3D3D;           /* fonten samma färg som body bakgrunden */
+    background-color: #FFF;
+    max-width: 1000px;          /* Tablet-desktop "breakpoint" för läslighet */
+    margin: auto;               /* Centrera på desktop */
+    min-height: 100%;           /* Skuffa ner footern trots lite innehåll */
+    padding-bottom: 30px;       /* Skuffa ner sections vita låda bakom footern */
+}
+article {
+    padding: 10px;              /* Space mellan artikel & artikel (margin collapsar) */
+    margin: 10px;               /* Space mellan artikel och t.ex section */
+}
+
+
+/* Allmängällande stilar för textformatering */
+h1 {
+    margin: 0;              /* bort med inbyggd margin */
+    font-size: xx-large;
+}
+
+/* Sidfoten */
+footer {
+    background-color: white;
+    color: black;
+    width: 100%;
+    max-width: 1000px;  /* responsiv som section */
+    margin: auto;       /* centrera */
+    border: 2px solid black;    /* box-sizing lägger ramen "på insidan" av blocket, */
+    box-sizing: border-box;       /* och "skuffar" därmed inte ut högra bordern */
+}
+
+/* Responsiv styling */
+@media (max-width:1200px) { /* Breakpoint vid <1200pxs skärmar (tablet) */
+    section, footer {
+        max-width: 1200px;  /* Göm "bakgrunden" på lanscape tablets */
+    }
+    body {
+        font-size: 120%;    /* Läslighet på minder skärmar */
+    }
+}
+@media (max-width:700px) { /* Breakpoint vid <700pxs skärmar (mobil portrait) */
+    nav li {
+        float: none;    /* Gör menyn vertikal */
+        width: 200px;   /* Minska på elementens bredd (bara för hover effekten) */
+        margin: auto;   /* Centrera */
+    }
+    header {
+        display: table;     /* Gör loggan full bredd */
+        width: 100%;        /* Gör menyn full bredd */
+        text-align: center;
+        font-size: x-large;
+    }
+    nav {
+        margin-top: 10px;   /* Lite space mellan meny och logo */
+    }
+      
+}
