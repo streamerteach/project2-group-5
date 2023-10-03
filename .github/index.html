@@ -14,7 +14,7 @@
             <label for="email">Email:</label>
             <input type="email" v-model="email">
 
-            <button type="submit" @click.prevent="submitForm">Skicka</button> <!--Kör submitform, preventDefault()-->
+            
         </form>
         <h2 v-else>Nu får du spam från dedma</h2>
     </div>
@@ -22,7 +22,7 @@
 
 <script>
     let = app = Vue.createApp({
-       
+
         data() {
             return {
                 greeting: "Tjenare tjenare",
@@ -40,13 +40,16 @@
                 console.log("enough is enough")
             }
         }
-    
-
     })
 
+    app.compontent("submit-button", {
+        template: '<button type="submit" @click.prevent="submitForm">Skicka</button> <!--Kör submitform, preventDefault()-->'
+    })
     app.mount("#app")
-   
-    const vm = Vue.createApp(App).mount("#app")
+
+    // komponenter är också isntanser av vue
+
+
 </script>
 
 </html>
