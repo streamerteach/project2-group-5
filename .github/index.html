@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <title>hehehehe</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1> {{greeting}} </h1>
+
+        <form v-if="visible">
+            
+            <email-form></email-form>
+            <submit-button></submit-button>
+            
+        </form>
+        <h2 v-else>Nu får du spam från dedma</h2>
+    </div>
+</body>
+
+<script>
+    let = app = Vue.createApp({
+
+        data() {
+            return {
+                greeting: "Tjenare tjenare",
+                email: "kasianoa@arcada.fi",
+                visible: true
+            }
+        }
+    })
+
+    app.component("submit-button", {
+        template: '<button type="submit" @click.prevent="submitForm">Skicka</button>',
+
+        methods: {
+            submitForm() {
+                console.log("Yo")
+                this.$root.visible = false;
+            }
+        }
+    })
+
+    app.component("email-form", {
+        template: '<label for="email">Email:</label> <input type="email" v-model="email"> <br>',
+        
+        data() {
+            return {
+                email: this.$root.email
+            }
+        },
+    })
+
+    app.mount("#app")
+
+
+</script>
+
+</html>
