@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Första vue sidan</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{greeting}}</h1>
+        <form v-if="visible">
+            <label for="email">Email:</label>
+            <input type="email" v-model="email">
+            <button type="submit" @click.prevent="submitForm">Sign up!</button>
+        </form>
+    </div>
+</body>
+<script>
+    let app = Vue.createApp({
+        data() {
+            return {
+                greeting: "Hello from Vue 3",
+                email: "hansenjo@arcada.fi",
+                visible: true
+            }
+        },
+        methods: {
+            submitForm() {
+                console.log("Form submitted!")
+                this.visible= false
+            }
+        }
+    })
+    app.component("submit-button",{
+        template: '<button type="submit" @click.prevent="submitForm">Sign up!</button>'
+    })
+    app.mount("#app")
+    
+</script>
+
+</html>
