@@ -1,14 +1,12 @@
-<<<<<<< HEAD
-import login from './components/login.vue'
-import loginButton from './components/loginButton.vue'
-import programChoices from './co                                                                                                      mponents/programChoices.vue'
-import programContent from './components/programContent.vue'
-import rating from './components/rating.vue'
-import timer from './components/timer.vue'
-import userTitle from './components/title.vue'
-=======
+import login from '../src/components/login.vue'
+import loginbutton from '../src/components/loginButton.vue'
+import programchoices from '../src/components/programChoices.vue'
+import programcontent from '../src/components/programContent.vue'
+import rating from '../src/components/rating.vue'
+import timer from '../src/components/timer.vue'
+import usertitle from '../src/components/title.vue'
 
->>>>>>> 3c7996eb8cd930abbda8f6c81aa0bec6fc2c446f
+
 
 let app = Vue.createApp({
 
@@ -20,19 +18,13 @@ let app = Vue.createApp({
     }
 
 })
-import login from './components/login.vue'
-import loginButton from './components/loginButton.vue'
-import programChoices from './components/programChoices.vue'
-import programContent from './components/programContent.vue'
-import rating from './components/rating.vue'
-import timer from './components/timer.vue'
-import userTitle from './components/title.vue'
+
 
 app.component('timer', timer)
-app.component('userTitle', userTitle)
+app.component('usertitle', usertitle)
 app.component('rating', rating)
-app.component('programContent', programContent)
-app.component('programChoices', programChoices)
-app.component('loginButton', loginButton)
+app.component('programcontent', programcontent)
+app.component('programchoices', programchoices)
+app.component('loginbutton', loginbutton)
 app.component('login', login)
 app.mount('#app')
