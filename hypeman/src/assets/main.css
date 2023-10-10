@@ -1,0 +1,47 @@
+body {
+  background-color: #FFD702;
+  overflow: hidden;
+}
+
+.tab {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  height: 80vh;
+  width: 80vw;
+}
+
+#app {
+  position: absolute;
+  margin: 3vh 3vw;
+}
+
+
+#header {
+  border: 2px solid black;
+  width: 74vw;
+  height: 10vh;
+}
+
+#body {
+  border: 2px solid black;
+  width: 74vw;
+  height: 53vh;
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+}
+#footer {
+  border: 2px solid black;
+  width: 74vw;
+  height: 10vh;
+}
+
+
+
