@@ -1,6 +1,15 @@
-import './assets/main.css'
 
-import { createApp } from 'vue'
-import App from './App.vue'
+let app = Vue.createApp({
 
-createApp(App).mount('#app')
+    
+    data() {
+        return {
+            visible: true
+        }
+    }
+
+})
+
+import timer from './components/timer.vue'
+app.component('timer', timer)
+app.mount('#app')
