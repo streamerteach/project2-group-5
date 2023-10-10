@@ -1,21 +1,17 @@
 {
-  "name": "y",
+  "name": "hypeman",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "test:unit": "vitest"
+    "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
-    "@vue/test-utils": "^2.4.1",
-    "jsdom": "^22.1.0",
-    "vite": "^4.4.9",
-    "vitest": "^0.34.4"
+    "vite": "^4.4.9"
   }
 }
