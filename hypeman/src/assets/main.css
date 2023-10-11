@@ -99,6 +99,7 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh; /* Eller sätt en specifik höjd */
+
 }
 
 .centerComponent {
@@ -106,8 +107,15 @@ body {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  flex-direction: column; 
 }
 
-
+.titleText {
+  font-size: 4em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  color: rgb(0, 0, 0);
+  margin-bottom: 50px;
+}
 
 
