@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <input v-model="text" @input="handleInput" class="login-input">
+    <input v-model="text" @input="handleInput" class="login-input" required>
   </div>
 </template>
 
@@ -19,18 +19,27 @@ export default {
 
 <style>
 .login-input {
-  width: 400px;
-  height: 70px;
+  width: 12em;
+  height: 2.5em;
   font-size: 40px;
   border-radius: 10px;
   border-width: 5px;
-  border-color: black;
+  border-width: 0px;
   transition: 0.5s;
 }
 
 .login-input:hover {
-  border-radius: 25px;
-  background-color: rgb(214, 214, 214);
+  border-radius: 15px;
+  background-color: rgb(249, 255, 214);
   
 }
+
+.login-input:focus {
+  border-width: 0px;
+  background-color: rgb(238, 238, 238); 
+  outline: 0px;
+  border-radius: 25px;
+  width: 15em;
+}
+
 </style>

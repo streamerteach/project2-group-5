@@ -45,11 +45,69 @@ body {
 }
 
 
+body {
+  background-color: #FFD702;
+  overflow: hidden;
+}
+
+.tab {
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  height: 80vh;
+  width: 80vw;
+}
+
+/* breakar child element som använder flex av någon anledning */
+.tab > #app{
+  position: absolute;
+  margin: 3vh 3vw;
+}
+
+
+#header {
+  border: 2px solid black;
+  width: 74vw;
+  height: 10vh;
+}
+
+#body {
+  border: 2px solid black;
+  width: 74vw;
+  height: 53vh;
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+}
+#footer {
+  border: 2px solid black;
+  width: 74vw;
+  height: 10vh;
+}
+
+
 /*Klass som centrerar en komponent i mitten av skärmen */
+.loginContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Eller sätt en specifik höjd */
+}
+
 .centerComponent {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;  
+  flex-grow: 1;
 }
+
+
+
 
