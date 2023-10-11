@@ -14,7 +14,8 @@ body {
   width: 80vw;
 }
 
-#app {
+/* breakar child element som använder flex av någon anledning */
+.tab > #app{
   position: absolute;
   margin: 3vh 3vw;
 }
@@ -44,4 +45,11 @@ body {
 }
 
 
+/*Klass som centrerar en komponent i mitten av skärmen */
+.centerComponent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  
+}
 

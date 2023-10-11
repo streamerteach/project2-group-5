@@ -1,10 +1,10 @@
-import login from '../src/components/login.vue'
-import loginbutton from '../src/components/loginButton.vue'
-import programchoices from '../src/components/programChoices.vue'
-import programcontent from '../src/components/programContent.vue'
-import rating from '../src/components/rating.vue'
-import timer from '../src/components/timer.vue'
-import usertitle from '../src/components/title.vue'
+import login from './components/login.vue'
+import loginbutton from './components/loginButton.vue'
+import programchoices from './components/programChoices.vue'
+import programcontent from './components/programContent.vue'
+import rating from './components/rating.vue'
+import timer from './components/timer.vue'
+import usertitle from './components/userTitle.vue'
 
 
 
