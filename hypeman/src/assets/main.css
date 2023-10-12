@@ -22,13 +22,18 @@ body {
 
 
 #header {
-  border: 2px solid black;
+  border: 0px solid black;
   width: 74vw;
   height: 10vh;
 }
 
+#header > h1 {
+  font-size: 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #body {
-  border: 2px solid black;
+  border: 0px solid black;
   width: 74vw;
   height: 53vh;
   .container {
@@ -36,61 +41,28 @@ body {
     flex-direction: row;
     align-items: center;
   }
-
 }
+
+#body > h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
+
+#row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 10vh;
+}
+
 #footer {
-  border: 2px solid black;
+  border: 0px solid black;
   width: 74vw;
   height: 10vh;
 }
-
-
-body {
-  background-color: #FFD702;
-  overflow: hidden;
-}
-
-.tab {
-  background-color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50px;
-  height: 80vh;
-  width: 80vw;
-}
-
-/* breakar child element som använder flex av någon anledning */
-.tab > #app{
-  position: absolute;
-  margin: 3vh 3vw;
-}
-
-
-#header {
-  border: 2px solid black;
-  width: 74vw;
-  height: 10vh;
-}
-
-#body {
-  border: 2px solid black;
-  width: 74vw;
-  height: 53vh;
-  .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-}
-#footer {
-  border: 2px solid black;
-  width: 74vw;
-  height: 10vh;
-}
-
 
 /*Klass som centrerar en komponent i mitten av skärmen */
 .loginContainer {
