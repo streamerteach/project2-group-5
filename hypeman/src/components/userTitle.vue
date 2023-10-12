@@ -1,10 +1,23 @@
+<template>
+  <h1>{{ text }} {{username}} </h1>
+</template>
+
 <script>
-//In progress...
 export default {
-  props: ['username']
+  props: {
+    text: {
+      type: String,
+      default: 'Nothing here...'
+    },
+    username: String
+  },
+
+  data() {
+    return {
+      username: localStorage.getItem('username')
+    }
+  }
+
+  
 }
 </script>
-
-<template>
-  <h1>tjena tjena tjena</h1>
-</template>
