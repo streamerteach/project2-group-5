@@ -1,5 +1,7 @@
+ TODO: När enter är nertryckt så ska man komma till next page 
+ 
 <template>
-  <button @click="usernameTyped" class="loginButton">SIGN IN</button>
+  <button @click="usernameTyped" @keyup.enter="test" class="loginButton">SIGN IN</button>
 </template>
 
 <script>
@@ -12,7 +14,12 @@ export default {
       if (username === null || username === "") {
         alert("You need to enter a username first!");
       } else window.location.href = "../../public/programChoices.html";
+
+     
     },
+     test: function () {
+        console.log("Enter är nedtryckt");
+      }
   },
 };
 </script>
