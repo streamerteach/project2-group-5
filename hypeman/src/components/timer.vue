@@ -11,6 +11,18 @@
   
 </template>
 <script>
+
+import motivation1 from '../assets/motivation/motivation1.mp3';
+import motivation2 from '../assets/motivation/motivation2.mp3';
+import motivation3 from '../assets/motivation/motivation3.mp3';
+import motivation4 from '../assets/motivation/motivation4.mp3';
+import motivation5 from '../assets/motivation/motivation5.mp3';
+import motivation6 from '../assets/motivation/motivation6.mp3';
+import motivation7 from '../assets/motivation/motivation7.mp3';
+import motivation8 from '../assets/motivation/motivation8.mp3';
+import motivation9 from '../assets/motivation/motivation9.mp3';
+import motivation10 from '../assets/motivation/motivation10.mp3';
+
 export default {
   data() {
     return {
@@ -37,14 +49,31 @@ export default {
       this.currentTime = this.startTime;
       this.timerRunning = true;
 
+      this.playRandomMotivationSound();
+
       this.timer = setInterval(() => {
         if (this.currentTime <= 0) {
           clearInterval(this.timer);
           this.timerRunning = false;
         } else {
           this.currentTime--;
+          if (this.currentTime % 120 === 0) {
+            this.playRandomMotivationSound();
+          }
         }
       }, 1000);
+    },
+    playRandomMotivationSound() {
+      // Array of motivation sounds
+      const motivationSounds = [
+        motivation1, motivation2, motivation3, motivation4, motivation5,
+        motivation6, motivation7, motivation8, motivation9, motivation10,
+      ];
+
+      // Play a random motivation sound
+      const randomSoundIndex = Math.floor(Math.random() * motivationSounds.length);
+      const audio = new Audio(motivationSounds[randomSoundIndex]);
+      audio.play();
     },
   },
 };
