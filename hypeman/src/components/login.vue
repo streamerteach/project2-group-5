@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
     <input
-      v-model="text"
+      :value="text"
       @input="handleInput"
       @focus="audioPlay"
       class="login-input"
@@ -13,8 +13,14 @@
 <script>
 import loginPageAudio from "../assets/other/login_page.mp3";
 let playTimes = 0;
+const username = localStorage.getItem("username");
 
 export default {
+  data() {
+    return {
+      text: username,
+    };
+  },
   methods: {
     //Metoden uppdaterar localstorage live när nåt matas in
     handleInput(event) {
