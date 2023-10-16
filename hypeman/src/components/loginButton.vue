@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import audioFile from "../assets/other/noName.wav";
+let playTimes = 0;
 export default {
   methods: {
     //Kollar om användaren matat in användarnamn via localstorage
@@ -12,7 +14,11 @@ export default {
       let username = localStorage.getItem("username");
 
       if (username === null || username === "") {
-        alert("You need to enter a username first!");
+        const audio = new Audio(audioFile);
+        if(playTimes === 0) {
+        audio.play();
+        playTimes++;
+        }
       } else window.location.href = "../../public/programChoices.html";
 
      
