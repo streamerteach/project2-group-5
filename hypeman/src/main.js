@@ -8,6 +8,7 @@ import usertitle from './components/userTitle.vue'
 
 
 
+
 let app = Vue.createApp({
 
     
@@ -19,12 +20,14 @@ let app = Vue.createApp({
 
 })
 
-
+app.component('login', login)
 app.component('timer', timer)
 app.component('usertitle', usertitle)
 app.component('rating', rating)
 app.component('programcontent', programcontent)
 app.component('programchoices', programchoices)
 app.component('loginbutton', loginbutton)
-app.component('login', login)
+
+
 app.mount('#app')
+
