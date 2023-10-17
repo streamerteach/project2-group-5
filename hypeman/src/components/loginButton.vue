@@ -1,14 +1,17 @@
  TODO: När enter är nertryckt så ska man komma till next page 
  
 <template>
-  <button @click="usernameTyped" @keyup.enter="test" class="loginButton">SIGN IN</button>
+  <button @click="usernameTyped" ref="login" class="loginButton">SIGN IN</button>
 </template>
 
 <script>
 import audioFile from "../assets/other/noName.wav";
 let playTimes = 0;
+
+
 export default {
   methods: {
+    
     //Kollar om användaren matat in användarnamn via localstorage
     usernameTyped: function () {
       let username = localStorage.getItem("username");
@@ -28,6 +31,9 @@ export default {
       }
   },
 };
+
+
+
 </script>
 
 <style>

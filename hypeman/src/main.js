@@ -6,11 +6,12 @@ import rating from './components/rating.vue'
 import timer from './components/timer.vue'
 import usertitle from './components/userTitle.vue'
 import programPreview from './components/programPreview.vue'
+import MusicDropdown from './components/musicDropdown.vue';
+import musicPlayer from './components/musicPlayer.vue';
 
 
 
-
-let app = Vue.createApp({
+const app = Vue.createApp({
 
     
     data() {
@@ -29,7 +30,7 @@ app.component('programcontent', programcontent)
 app.component('programchoices', programchoices)
 app.component('loginbutton', loginbutton)
 app.component('programpreview', programPreview)
-
-
+app.component('musicdropdown', MusicDropdown)
+app.component('musicplayer', musicPlayer)
 app.mount('#app')
 
