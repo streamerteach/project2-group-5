@@ -8,6 +8,7 @@ import usertitle from './components/userTitle.vue'
 import programPreview from './components/programPreview.vue'
 import MusicDropdown from './components/musicDropdown.vue';
 import musicPlayer from './components/musicPlayer.vue';
+import backButton from './components/backButton.vue';
 
 
 
@@ -32,5 +33,6 @@ app.component('loginbutton', loginbutton)
 app.component('programpreview', programPreview)
 app.component('musicdropdown', MusicDropdown)
 app.component('musicplayer', musicPlayer)
+app.component('backbutton', backButton)
 app.mount('#app')
 
