@@ -12,7 +12,7 @@
         </span>
       </div>
       <p>Your rating: {{ currentRating }}</p>
-      <p>Your difficulty rating: {{ difficultyRating }}</p> <!-- Display difficulty rating -->
+      <p>Your difficulty rating for the "{{ program }}" program: {{ getProgramDifficultyRating(program) }}</p>
       <button @click="submitRating">Submit</button>
     </div>
   </template>
@@ -22,28 +22,50 @@
     data() {
       return {
         currentRating: 0,
-        difficultyRating: 0, // Initialize difficultyRating in data
+        program: '',
+        WeightsdifficultyRating: 0,
+        HIITdifficultyRating: 0,
+        CalisthenicsdifficultyRating: 0,
+        StretchingdifficultyRating: 0,
       };
     },
     mounted() {
-      // Get the difficulty rating from local storage and set it in data
-      this.difficultyRating = parseInt(localStorage.getItem('difficultyRating')) || 0;
+      this.program = localStorage.getItem('program') || '';
+
+      this.WeightsdifficultyRating = parseInt(localStorage.getItem('WeightsdifficultyRating')) || 0;
+      this.HIITdifficultyRating = parseInt(localStorage.getItem('HIITdifficultyRating')) || 0;
+      this.CalisthenicsdifficultyRating = parseInt(localStorage.getItem('CalisthenicsdifficultyRating')) || 0;
+      this.StretchingdifficultyRating = parseInt(localStorage.getItem('StretchingdifficultyRating')) || 0;
     },
     methods: {
       setRating(rating) {
         this.currentRating = rating;
       },
+      getProgramDifficultyRating(program) {
+        switch (program) {
+          case 'Weights':
+            return this.WeightsdifficultyRating;
+          case 'HIIT':
+            return this.HIITdifficultyRating;
+          case 'Calisthenics':
+            return this.CalisthenicsdifficultyRating;
+          case 'Stretching':
+            return this.StretchingdifficultyRating;
+          default:
+            return 0;
+        }
+      },
       submitRating() {
-        // Update difficultyRating based on currentRating
-        if (this.currentRating === 5 && this.difficultyRating < 5) {
-          this.difficultyRating++;
-          localStorage.setItem('difficultyRating', this.difficultyRating);
+        if (this.currentRating === 5 && this.getProgramDifficultyRating(this.program) < 5) {
+          this[this.program + 'difficultyRating']++;
+          localStorage.setItem(`${this.program}difficultyRating`, this.getProgramDifficultyRating(this.program));
         }
   
-        if (this.currentRating < 3 && this.difficultyRating > 1) {
-          this.difficultyRating--;
-          localStorage.setItem('difficultyRating', this.difficultyRating);
+        if (this.currentRating < 3 && this.getProgramDifficultyRating(this.program) > 1) {
+          this[this.program + 'difficultyRating']--;
+          localStorage.setItem(`${this.program}difficultyRating`, this.getProgramDifficultyRating(this.program));
         }
+        window.location.href = 'programChoices.html';
       },
     },
   };
@@ -51,7 +73,7 @@
   
   <style>
   .rating {
-    font-size: 30px;
+    font-size: 90px;
     cursor: pointer;
   }
   
