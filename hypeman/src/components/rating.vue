@@ -1,84 +1,94 @@
 <template>
-    <div>
-      <h2>Overall rating:</h2>
-      <div class="rating">
-        <span
-          v-for="star in 5"
-          :key="star"
-          @click="setRating(star)"
-          :class="{ 'rated': star <= currentRating, 'unrated': star > currentRating }"
-        >
-          ★
-        </span>
-      </div>
-      <p>Your rating: {{ currentRating }}</p>
-      <p>Your difficulty rating for the "{{ program }}" program: {{ getProgramDifficultyRating(program) }}</p>
-      <button @click="submitRating">Submit</button>
+    <div class="centerComponent">
+        <h2>Overall rating:</h2>
+        <div class="rating">
+            <span v-for="star in 5" :key="star" @click="setRating(star)"
+                :class="{ 'rated': star <= currentRating, 'unrated': star > currentRating }">
+                ★
+            </span>
+        </div>
+        <p>Your difficulty rating for the {{ program }} program was: </p>
+        <p class="difficultyLevel">{{ getProgramDifficultyRating(program) }}/5</p>
+        <button class="submitButton" @click="submitRating">Submit</button>
     </div>
-  </template>
+</template>
   
-  <script>
-  export default {
+<script>
+export default {
     data() {
-      return {
-        currentRating: 0,
-        program: '',
-        WeightsdifficultyRating: 0,
-        HIITdifficultyRating: 0,
-        CalisthenicsdifficultyRating: 0,
-        StretchingdifficultyRating: 0,
-      };
+        return {
+            currentRating: 0,
+            program: '',
+            WeightsDifficultyRating: 0,
+            HIITDifficultyRating: 0,
+            CalisthenicsDifficultyRating: 0,
+            StretchingDifficultyRating: 0,
+        };
     },
     mounted() {
-      this.program = localStorage.getItem('program') || '';
+        this.program = localStorage.getItem('program') || '';
 
-      this.WeightsdifficultyRating = parseInt(localStorage.getItem('WeightsdifficultyRating')) || 0;
-      this.HIITdifficultyRating = parseInt(localStorage.getItem('HIITdifficultyRating')) || 0;
-      this.CalisthenicsdifficultyRating = parseInt(localStorage.getItem('CalisthenicsdifficultyRating')) || 0;
-      this.StretchingdifficultyRating = parseInt(localStorage.getItem('StretchingdifficultyRating')) || 0;
+        this.WeightsDifficultyRating = parseInt(localStorage.getItem('WeightsDifficultyRating')) || 0;
+        this.HIITDifficultyRating = parseInt(localStorage.getItem('HIITDifficultyRating')) || 0;
+        this.CalisthenicsDifficultyRating = parseInt(localStorage.getItem('CalisthenicsDifficultyRating')) || 0;
+        this.StretchingDifficultyRating = parseInt(localStorage.getItem('StretchingDifficultyRating')) || 0;
     },
     methods: {
-      setRating(rating) {
-        this.currentRating = rating;
-      },
-      getProgramDifficultyRating(program) {
-        switch (program) {
-          case 'Weights':
-            return this.WeightsdifficultyRating;
-          case 'HIIT':
-            return this.HIITdifficultyRating;
-          case 'Calisthenics':
-            return this.CalisthenicsdifficultyRating;
-          case 'Stretching':
-            return this.StretchingdifficultyRating;
-          default:
-            return 0;
-        }
-      },
-      submitRating() {
-        if (this.currentRating === 5 && this.getProgramDifficultyRating(this.program) < 5) {
-          this[this.program + 'difficultyRating']++;
-          localStorage.setItem(`${this.program}difficultyRating`, this.getProgramDifficultyRating(this.program));
-        }
-  
-        if (this.currentRating < 3 && this.getProgramDifficultyRating(this.program) > 1) {
-          this[this.program + 'difficultyRating']--;
-          localStorage.setItem(`${this.program}difficultyRating`, this.getProgramDifficultyRating(this.program));
-        }
-        window.location.href = 'programChoices.html';
-      },
+        setRating(rating) {
+            this.currentRating = rating;
+        },
+        getProgramDifficultyRating(program) {
+            switch (program) {
+                case 'Weights':
+                    return this.WeightsDifficultyRating;
+                case 'HIIT':
+                    return this.HIITDifficultyRating;
+                case 'Calisthenics':
+                    return this.CalisthenicsDifficultyRating;
+                case 'Stretching':
+                    return this.StretchingDifficultyRating;
+                default:
+                    return 0;
+            }
+        },
+        submitRating() {
+            if (this.currentRating === 0) {
+                return;
+            }
+            else if (this.currentRating === 5 && this.getProgramDifficultyRating(this.program) < 5) {
+                this[this.program + 'DifficultyRating']++;
+                localStorage.setItem(`${this.program}DifficultyRating`, this.getProgramDifficultyRating(this.program));
+            }
+
+            else if (this.currentRating < 3 && this.getProgramDifficultyRating(this.program) > 1) {
+                this[this.program + 'DifficultyRating']--;
+                localStorage.setItem(`${this.program}DifficultyRating`, this.getProgramDifficultyRating(this.program));
+            }
+            window.location.href = 'programChoices.html';
+        },
     },
-  };
-  </script>
+};
+</script>
   
-  <style>
-  .rating {
-    font-size: 90px;
+<style>
+p {
+    font-size: 30px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.difficultyLevel{
+    font-size: 50px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+.rating {
+    font-size: 100px;
     cursor: pointer;
-  }
-  
-  .rated {
+}
+
+.rated {
     color: orange;
-  }
-  </style>
+}
+</style>
   

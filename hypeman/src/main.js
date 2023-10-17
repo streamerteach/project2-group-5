@@ -5,6 +5,7 @@ import programcontent from './components/programContent.vue'
 import rating from './components/rating.vue'
 import timer from './components/timer.vue'
 import usertitle from './components/userTitle.vue'
+import programPreview from './components/programPreview.vue'
 
 
 
@@ -27,6 +28,7 @@ app.component('rating', rating)
 app.component('programcontent', programcontent)
 app.component('programchoices', programchoices)
 app.component('loginbutton', loginbutton)
+app.component('programpreview', programPreview)
 
 
 app.mount('#app')

@@ -1,6 +1,9 @@
 body {
   background-color: #FFD702;
   overflow: hidden;
+  
+  /* vill ba ha en annan default font -tane */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .tab {
@@ -96,4 +99,22 @@ body {
 .hypemanImage {
   width: 20rem;
 
+}
+
+/* Submit button */
+.submitButton {
+  transition: 0.5s;
+  margin-top: 4rem;
+  width: 12rem;
+  height: 4rem;
+  border-radius: 15px;
+  border-style: none;
+  background-color: #5CC4FF;
+  color: white;
+  font-size: 40px;
+}
+.submitButton:hover {
+  background-color: #4ca2d4;
+  cursor: pointer;
+  width: 14rem;
 }
