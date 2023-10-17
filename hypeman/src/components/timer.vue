@@ -1,8 +1,7 @@
 <template>
     
     <div class="timer-container">
-      <button @click="startTimer(1)">Start 1-Hour Timer</button>
-      <button @click="startTimer(2)">Start 2-Hour Timer</button>
+
     </div>
     <div class="time-container">
       <p v-if="timerRunning">Timer: {{ Math.floor(currentTime / 60) }}m {{ currentTime % 60 }}s</p>
@@ -45,11 +44,11 @@ export default {
         clearInterval(this.timer);
       }
 
-      this.startTime = hours * 60 * 60;
+      this.startTime = hours * 60;
       this.currentTime = this.startTime;
       this.timerRunning = true;
 
-      this.playRandomMotivationSound();
+      
 
       this.timer = setInterval(() => {
         if (this.currentTime <= 0) {
@@ -57,12 +56,14 @@ export default {
           this.timerRunning = false;
         } else {
           this.currentTime--;
-          if (this.currentTime % 120 === 0) {
+          if (this.currentTime % 20 === 0) {
+            
             this.playRandomMotivationSound();
           }
         }
       }, 1000);
     },
+  
     playRandomMotivationSound() {
       // Array of motivation sounds
       const motivationSounds = [
@@ -75,6 +76,10 @@ export default {
       const audio = new Audio(motivationSounds[randomSoundIndex]);
       audio.play();
     },
+  },
+  created() {
+    // Start the timer with a 1-hour duration on page load
+    this.startTimer(1);
   },
 };
 </script>
