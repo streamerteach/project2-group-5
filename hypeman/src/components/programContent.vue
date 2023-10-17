@@ -10,6 +10,7 @@
   
 <script>
 import { getExerciseDescription } from "@/utils.js";
+
 export default {
     data() {
         return {
@@ -54,18 +55,26 @@ export default {
     },
     methods: {
         nextExercise() {
+            
             if (this.currentVideoIndex < this.videoSources[this.currentProgram].length) {
                 this.currentVideoIndex++;
             } else {
                 this.quitProgram();
             }
+            if (this.currentVideoIndex === 4) {
+                this.quitProgram();
+            }
+            localStorage.setItem('buttonPressed', 'true');
+            
         },
         quitProgram() {
             window.location.href = "rating.html";
+            localStorage.setItem('buttonPressed', 'false');
         },
     },
     mounted() {
         this.programName = this.currentProgram;
+        setInterval(this.nextExercise, 60000);
     },
 };
 </script>

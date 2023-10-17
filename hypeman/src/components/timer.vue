@@ -1,12 +1,8 @@
 <template>
-    
-    <div class="timer-container">
-
-    </div>
-    <div class="time-container">
-      <p v-if="timerRunning">Timer: {{ Math.floor(currentTime / 60) }}m {{ currentTime % 60 }}s</p>
-      <p v-else>Timer Stopped</p>
-    </div>
+  <div class="time-container">
+    <p v-if="timerRunning">Timer: {{ Math.floor(currentTime / 60) }}m {{ currentTime % 60 }}s</p>
+    <p v-else>Timer Stopped</p>
+  </div>
   
 </template>
 <script>
@@ -22,13 +18,17 @@ import motivation8 from '../assets/motivation/motivation8.mp3';
 import motivation9 from '../assets/motivation/motivation9.mp3';
 import motivation10 from '../assets/motivation/motivation10.mp3';
 
+
+
 export default {
+  
   data() {
     return {
       timerRunning: false,
       timer: null,
       startTime: 0,
       currentTime: 0,
+
     };
   },
   computed: {
@@ -39,6 +39,7 @@ export default {
     },
   },
   methods: {
+    
     startTimer(hours) {
       if (this.timerRunning) {
         clearInterval(this.timer);
@@ -47,23 +48,32 @@ export default {
       this.startTime = hours * 60;
       this.currentTime = this.startTime;
       this.timerRunning = true;
-
       
 
+
+
       this.timer = setInterval(() => {
+        if (localStorage.getItem('buttonPressed') === 'true') {
+          
+          console.log('Button has been pressed!');
+          
+          this.currentTime = this.startTime;
+          
+          localStorage.setItem('buttonPressed', 'false');
+        }
         if (this.currentTime <= 0) {
-          clearInterval(this.timer);
-          this.timerRunning = false;
+          this.currentTime = this.startTime;
         } else {
+          
           this.currentTime--;
           if (this.currentTime % 20 === 0) {
-            
+
             this.playRandomMotivationSound();
           }
         }
       }, 1000);
     },
-  
+
     playRandomMotivationSound() {
       // Array of motivation sounds
       const motivationSounds = [
@@ -78,8 +88,12 @@ export default {
     },
   },
   created() {
-    // Start the timer with a 1-hour duration on page load
+    
     this.startTimer(1);
+
+    
+  
   },
+
 };
 </script>
