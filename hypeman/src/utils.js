@@ -1,4 +1,13 @@
 export function getExerciseDescription(program, difficultyRating) {
+    // if local storage is empty, set default values for difficulty and program
+    if (!difficultyRating) {
+
+        localStorage.setItem('HIITDifficultyRating', 1);
+        localStorage.setItem('CalisthenicsDifficultyRating', 1);
+        localStorage.setItem('WeightsDifficultyRating', 1);
+        localStorage.setItem('StretchingDifficultyRating', 1);
+    }
+
     var stretchingTime = 1;
     if (!program || isNaN(difficultyRating)) return [];
   

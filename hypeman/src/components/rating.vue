@@ -28,10 +28,10 @@ export default {
     mounted() {
         this.program = localStorage.getItem('program') || '';
 
-        this.WeightsDifficultyRating = parseInt(localStorage.getItem('WeightsDifficultyRating')) || 0;
-        this.HIITDifficultyRating = parseInt(localStorage.getItem('HIITDifficultyRating')) || 0;
-        this.CalisthenicsDifficultyRating = parseInt(localStorage.getItem('CalisthenicsDifficultyRating')) || 0;
-        this.StretchingDifficultyRating = parseInt(localStorage.getItem('StretchingDifficultyRating')) || 0;
+        this.WeightsDifficultyRating = parseInt(localStorage.getItem('WeightsDifficultyRating')) || 1;
+        this.HIITDifficultyRating = parseInt(localStorage.getItem('HIITDifficultyRating')) || 1;
+        this.CalisthenicsDifficultyRating = parseInt(localStorage.getItem('CalisthenicsDifficultyRating')) || 1;
+        this.StretchingDifficultyRating = parseInt(localStorage.getItem('StretchingDifficultyRating')) || 1;
     },
     methods: {
         setRating(rating) {
