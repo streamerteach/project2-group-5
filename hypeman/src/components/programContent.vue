@@ -46,6 +46,7 @@ export default {
         },
         currentVideoSource() {
             if (this.currentVideoIndex <= this.videoSources[this.currentProgram].length) {
+                localStorage.setItem("currentExercise", this.currentVideoIndex);
                 return this.videoSources[this.currentProgram][this.currentVideoIndex - 1];
             }
             return null;
