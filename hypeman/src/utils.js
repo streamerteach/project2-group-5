@@ -1,5 +1,5 @@
 export function getExerciseDescription(program, difficultyRating) {
-    var stretchingTime = Math.round(difficultyRating * 1.3 + 2);
+    var stretchingTime = 1;
     if (!program || isNaN(difficultyRating)) return [];
   
     switch (program) {
