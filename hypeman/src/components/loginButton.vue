@@ -24,7 +24,7 @@ export default {
         audio.play();
         playTimes++;
         }
-      } else window.location.href = "../../public/programChoices.html";
+      } else window.location.href = "./programChoices.html";
 
      
     },
