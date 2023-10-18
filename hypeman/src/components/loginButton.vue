@@ -1,7 +1,9 @@
  TODO: När enter är nertryckt så ska man komma till next page 
  
 <template>
+<div>
   <button @click="usernameTyped" ref="login" class="loginButton">SIGN IN</button>
+  </div>
 </template>
 
 <script>
