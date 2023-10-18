@@ -101,6 +101,12 @@ body {
 
 }
 
+#chooseMusic {
+  font-size: 10px;
+}
+
+
+
 /* Submit button */
 .submitButton {
   transition: 0.5s;

@@ -2,10 +2,11 @@
     <div class="centerComponent">
         <h2>Overall rating:</h2>
         <div class="rating">
-            <span v-for="star in 5" :key="star" @click="setRating(star)"
-                :class="{ 'rated': star <= currentRating, 'unrated': star > currentRating }">
-                ★
-            </span>
+         <span v-for="star in 5" :key="6 - star" @click="setRating(6 - star)"
+      :class="{ 'rated': 6 - star <= currentRating, 'unrated': 6 - star > currentRating }">
+  ★
+</span>
+
         </div>
         <p>Your difficulty rating for the {{ program }} program was: </p>
         <p class="difficultyLevel">{{ getProgramDifficultyRating(program) }}/5</p>

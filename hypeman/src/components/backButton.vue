@@ -1,5 +1,5 @@
 <template>
-    <button @click="goBack()"> Go back </button>
+    <button @click="goBack()" class="backButton"> Go back </button>
 </template>
 
 <script>
@@ -12,3 +12,19 @@ export default {
     }
 }
 </script>
+<style>
+.backButton {
+  transition: 0.5s;
+  margin-top: 4rem;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 15px;
+  border-style: none;
+  background-color: #5CC4FF;
+  color: white;
+  font-size: 1rem;
+}
+
+</style>
+```
+
