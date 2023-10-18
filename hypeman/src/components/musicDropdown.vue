@@ -6,7 +6,6 @@
       <option value="inspirational">Inspirational</option>
       <option value="national">National</option>
     </select>
-   
   </div>
 </template>
 
@@ -15,16 +14,23 @@ export default {
   data() {
     return {
       selected: ""
-    
     };
-   
+  },
+  mounted() { 
+  
+    const storedValue = localStorage.getItem("music");
+    
+  
+    if (storedValue) {
+      this.selected = storedValue;
+    }
   },
   methods: {
-        onChange(event) {
-            localStorage.setItem("music", event.target.value);
-        }
+    onChange(event) {
+      localStorage.setItem("music", event.target.value);
     }
-}
+  }
+};
 </script>
 
 <style>

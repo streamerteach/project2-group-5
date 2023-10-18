@@ -12,7 +12,7 @@ const songChoice = localStorage.getItem("music");
 export default {
 mounted() {
     setTimeout(this.audioPlay, 1000); // Spelar upp musiken 1 sekund efter att komponenten har monterats
-    localStorage.setItem("music", "hardcore");
+
   },
   methods: {
 
