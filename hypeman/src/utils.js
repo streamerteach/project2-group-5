@@ -1,14 +1,10 @@
 const stretchingTime = 1;
 
 export function getExerciseDescription(program, difficultyRating) {
-  if (program = 'Stretching') {
-    return [
-      `Spin head around in circles to stretch neck muscles for ${stretchingTime} minutes`,
-      `Stretch legs by crossing them and leaning forward for ${stretchingTime} minutes`,
-      `Lean forward and touch toes to stretch hamstrings for ${stretchingTime} minutes`,
-    ];
+  if (program == 'Stretching') {
+    difficultyRating = 1;
   }
-  if (!difficultyRating) {
+  else if (!difficultyRating) {
     localStorage.setItem('HIITDifficultyRating', 1);
     localStorage.setItem('CalisthenicsDifficultyRating', 1);
     localStorage.setItem('WeightsDifficultyRating', 1);
@@ -17,6 +13,12 @@ export function getExerciseDescription(program, difficultyRating) {
   if (!program || isNaN(difficultyRating)) return [];
 
   switch (program) {
+    case 'Stretching':
+      return [
+        `Spin head around in circles to stretch neck muscles for ${stretchingTime} minutes`,
+        `Stretch legs by crossing them and leaning forward for ${stretchingTime} minutes`,
+        `Lean forward and touch toes to stretch hamstrings for ${stretchingTime} minutes`,
+      ];
     case 'Calisthenics':
       return [
         `Do ${difficultyRating * 5} pushups`,
