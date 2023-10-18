@@ -26,6 +26,9 @@ mounted() {
         } else if(songChoice === "national") {
             const audio = new Audio(song);
             audio.play();
+        } else {
+            const audio = new Audio(hardcore);
+            audio.play();
         }
     },
   },
