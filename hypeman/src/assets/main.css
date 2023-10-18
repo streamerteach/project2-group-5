@@ -102,10 +102,17 @@ body {
 }
 
 #chooseMusic {
-  font-size: 10px;
+  font-size: 25px;
+  margin: 10px auto;
+  margin-top: 10px;
 }
 
-
+.musicContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
 
 /* Submit button */
 .submitButton {

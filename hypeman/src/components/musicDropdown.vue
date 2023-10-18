@@ -26,3 +26,14 @@ export default {
     }
 }
 </script>
+
+<style>
+select {
+  width: 8em;
+  height: 2em;
+  font-size: 1em;
+  border-radius: 10px;
+
+ 
+}
+</style>

@@ -25,6 +25,12 @@ export default {
   font-size: 1rem;
 }
 
+.backButton:hover {
+  background-color: #4ca2d4;
+  cursor: pointer;
+  width: 7rem;
+}
+
 </style>
-```
+
 
