@@ -18,7 +18,7 @@ const username = localStorage.getItem("username");
 export default {
   data() {
     return {
-      text: username,
+      text: username, 
     };
   },
   methods: {
@@ -28,8 +28,8 @@ export default {
       localStorage.setItem("username", this.text);
     },
 
+    //spelar upp ljud när man klickar i inputfältet
     audioPlay() {
-    
       const audio = new Audio(loginPageAudio);
       if(playTimes === 0) {
       audio.play();

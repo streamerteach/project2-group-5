@@ -2,11 +2,10 @@
     <div class="centerComponent">
         <h2>Overall rating:</h2>
         <div class="rating">
-         <span v-for="star in 5" :key="6 - star" @click="setRating(6 - star)"
-      :class="{ 'rated': 6 - star <= currentRating, 'unrated': 6 - star > currentRating }">
-  ★
-</span>
-
+            <span v-for="star in 5" :key="star" @click="setRating(star)"
+                :class="{ 'rated': star <= currentRating, 'unrated': star > currentRating }">
+                ★
+            </span>
         </div>
         <!-- only show this when localstorage key program is not stretching -->
         <p v-if="program !== 'Stretching'">Your difficulty rating for the {{ program }} program was: </p>
