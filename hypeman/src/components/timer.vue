@@ -1,5 +1,5 @@
 <template>
-  <div class="time-container">
+  <div class="time-container" v-if="currentProgram == 'Stretching'">
     <p v-if="timerRunning">Timer: {{ Math.floor(currentTime / 60) }}m {{ currentTime % 60 }}s</p>
     <p v-else>Timer Stopped</p>
   </div>
@@ -28,6 +28,7 @@ export default {
       timer: null,
       startTime: 0,
       currentTime: 0,
+      currentProgram: localStorage.getItem("program"),
 
     };
   },
