@@ -1,5 +1,5 @@
 <template>
- <button @click="audioPlay()"> Play music </button>
+
 </template>
 
 <script>
@@ -10,7 +10,9 @@ import inspirational from "../assets/music/inspirational.mp3";
 const songChoice = localStorage.getItem("music");
 
 export default {
-
+mounted() {
+    setTimeout(this.audioPlay, 1000); // Spelar upp musiken 1 sekund efter att komponenten har monterats
+  },
   methods: {
 
     audioPlay() {
