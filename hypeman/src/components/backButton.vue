@@ -5,9 +5,8 @@
 <script>
 export default {
   methods: {
-    goBack() {
-      //om man är på en specifik sida
-
+    goBack() { //
+      //Går tillbaka ett steg i historiken
       console.log("go back");
       window.history.back();
     },
