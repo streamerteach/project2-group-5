@@ -1,15 +1,12 @@
 const stretchingTime = 1;
 
 export function getExerciseDescription(program, difficultyRating) {
-  if (program == 'Stretching') {
+  if (!difficultyRating) {
     difficultyRating = 1;
-  }
-  else if (!difficultyRating) {
     localStorage.setItem('HIITDifficultyRating', 1);
     localStorage.setItem('CalisthenicsDifficultyRating', 1);
     localStorage.setItem('WeightsDifficultyRating', 1);
-  }
-
+}
   if (!program || isNaN(difficultyRating)) return [];
 
   switch (program) {
