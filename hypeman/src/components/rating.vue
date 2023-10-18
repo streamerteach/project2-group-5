@@ -7,8 +7,9 @@
                 ★
             </span>
         </div>
-        <p>Your difficulty rating for the {{ program }} program was: </p>
-        <p class="difficultyLevel">{{ getProgramDifficultyRating(program) }}/5</p>
+        <!-- only show this when localstorage key program is not stretching -->
+        <p v-if="program !== 'Stretching'">Your difficulty rating for the {{ program }} program was: </p>
+        <p v-if="program !== 'Stretching'" class="difficultyLevel">{{ getProgramDifficultyRating(program) }}/5</p>
         <button class="submitButton" @click="submitRating">Submit</button>
     </div>
 </template>
@@ -22,7 +23,6 @@ export default {
             WeightsDifficultyRating: 0,
             HIITDifficultyRating: 0,
             CalisthenicsDifficultyRating: 0,
-            StretchingDifficultyRating: 0,
         };
     },
     mounted() {
@@ -31,7 +31,6 @@ export default {
         this.WeightsDifficultyRating = parseInt(localStorage.getItem('WeightsDifficultyRating')) || 1;
         this.HIITDifficultyRating = parseInt(localStorage.getItem('HIITDifficultyRating')) || 1;
         this.CalisthenicsDifficultyRating = parseInt(localStorage.getItem('CalisthenicsDifficultyRating')) || 1;
-        this.StretchingDifficultyRating = parseInt(localStorage.getItem('StretchingDifficultyRating')) || 1;
     },
     methods: {
         setRating(rating) {
@@ -45,8 +44,6 @@ export default {
                     return this.HIITDifficultyRating;
                 case 'Calisthenics':
                     return this.CalisthenicsDifficultyRating;
-                case 'Stretching':
-                    return this.StretchingDifficultyRating;
                 default:
                     return 0;
             }
@@ -76,12 +73,14 @@ p {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
-.difficultyLevel{
+
+.difficultyLevel {
     font-size: 50px;
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-weight: 600;
 }
+
 .rating {
     font-size: 100px;
     cursor: pointer;
