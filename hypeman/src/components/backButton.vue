@@ -1,16 +1,18 @@
 <template>
-    <button @click="goBack()" class="backButton"> Go back </button>
+  <button @click="goBack()" class="backButton">Go back</button>
 </template>
 
 <script>
 export default {
-    methods: {
-        goBack() {
-            console.log("go back")
-            window.history.back();
-        }
-    }
-}
+  methods: {
+    goBack() {
+      //om man är på en specifik sida
+
+      console.log("go back");
+      window.history.back();
+    },
+  },
+};
 </script>
 <style>
 .backButton {
@@ -20,7 +22,7 @@ export default {
   height: 2rem;
   border-radius: 15px;
   border-style: none;
-  background-color: #5CC4FF;
+  background-color: #5cc4ff;
   color: white;
   font-size: 1rem;
 }
@@ -30,7 +32,6 @@ export default {
   cursor: pointer;
   width: 7rem;
 }
-
 </style>
 
 
