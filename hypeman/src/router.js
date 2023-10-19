@@ -5,7 +5,7 @@ import programpreview from './components/programPreview.vue';
 import programChoices from './components/programChoices.vue';
 import program from './components/program.vue';
 
-const routes = [
+const routes = [ //routings
     {
         path: '/',
         name: 'index',
