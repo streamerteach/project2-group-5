@@ -31,7 +31,7 @@
   
 <script>
 import { getExerciseDescription } from "@/utils.js";
-
+import backbutton from './backbutton.vue';
 
 export default {
     components: {
