@@ -2,11 +2,14 @@
     <h1>{{ programName }}</h1>
     <video ref="videoPlayer" :src="currentVideoSource" autoplay loop></video>
     <p class="video-description">{{ currentDescription }}</p>
+   
     <button class="button" @click="nextExercise">Next</button>
+   
 </template>
   
   
 <script>
+//importerar videorna
 import { getExerciseDescription } from "@/utils.js";
 import HIIT1 from '../../src/assets/programVideos/HIIT1.mp4';
 import HIIT2 from '../../src/assets/programVideos/HIIT2.mp4';
@@ -27,7 +30,7 @@ export default {
             programName: "",
             currentVideoIndex: 1,
             currentProgram: localStorage.getItem("program"),
-            videoSources: { // object för att få video sourcen att byta automatiskt
+            videoSources: { //objekt för att få video sourcen att byta automatiskt
                 HIIT: [
                     HIIT1,
                     HIIT2,
@@ -51,10 +54,12 @@ export default {
             },
         };
     },
-    computed: { // tane kod
+    computed: { 
+        //computed properties för att få videon att byta automatiskt
         currentDescription() {
             return getExerciseDescription(this.currentProgram, parseInt(localStorage.getItem(`${this.currentProgram}DifficultyRating`)))[this.currentVideoIndex - 1];
-        },
+        }, 
+        //hämtar video sourcen från objectet
         currentVideoSource() {
             if (this.currentVideoIndex <= this.videoSources[this.currentProgram].length) {
                 localStorage.setItem("currentExercise", this.currentVideoIndex);
@@ -62,8 +67,9 @@ export default {
             }
             return null;
         },
-    },
+    }, 
     methods: {
+        //metod för att byta video
         nextExercise() {
 
             if (this.currentVideoIndex < this.videoSources[this.currentProgram].length) {
@@ -71,17 +77,19 @@ export default {
             } else {
                 this.quitProgram();
             }
-            if (this.currentVideoIndex === 4) {
+            if (this.currentVideoIndex === 4) { //byter program bilden när det är sista videon
                 this.quitProgram();
             }
             localStorage.setItem('buttonPressed', 'true');
 
         },
+        //metod för att avsluta programmet
         quitProgram() {
             window.location.href = "/rating";
             localStorage.setItem('buttonPressed', 'false');
         },
     },
+    //metod för att få programnamnet att visas
     mounted() { 
         this.programName = this.currentProgram;
         setInterval(this.nextExercise, 60000);//byter program bilden varje 60 sekunder

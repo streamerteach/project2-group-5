@@ -8,6 +8,7 @@
                     ★
                 </span>
             </div>
+            <!--om programet är stretching så visas inte difficulty rating -->
             <p v-if="program !== 'Stretching'">Your difficulty rating for the {{ program }} program was: </p>
             <p v-if="program !== 'Stretching'" class="difficultyLevel">{{ getProgramDifficultyRating(program)}}/5</p>
             <button class="submitButton" @click="submitRating">Submit</button>
@@ -26,6 +27,7 @@ export default {
             CalisthenicsDifficultyRating: 0,
         };
     },
+    //hämtar difficulty rating från local storage
     mounted() {
         this.program = localStorage.getItem('program') || '';
 
@@ -34,9 +36,11 @@ export default {
         this.CalisthenicsDifficultyRating = parseInt(localStorage.getItem('CalisthenicsDifficultyRating')) || 1;
     },
     methods: {
+        //sätter ratingen
         setRating(rating) {
             this.currentRating = rating;
         },
+        //hämtar difficulty rating från local storage
         getProgramDifficultyRating(program) {
             switch (program) {
                 case 'Weights':
@@ -49,6 +53,7 @@ export default {
                     return 0;
             }
         },
+        //sparar ratingen i local storage
         submitRating() {
             if (this.currentRating === 0) {
                 return;
@@ -66,6 +71,7 @@ export default {
         },
     },
 };
+
 </script>
   
 <style>
@@ -91,4 +97,3 @@ p {
     color: orange;
 }
 </style>
-  
