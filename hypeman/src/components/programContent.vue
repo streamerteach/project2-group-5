@@ -10,6 +10,21 @@
   
 <script>
 import { getExerciseDescription } from "@/utils.js";
+import HIIT1 from '../../src/assets/programVideos/HIIT1.mp4';
+import HIIT2 from '../../src/assets/programVideos/HIIT2.mp4';
+import HIIT3 from '../../src/assets/programVideos/HIIT3.mp4';
+
+import Weights1 from '../../src/assets/programVideos/Weights1.mp4';
+import Weights2 from '../../src/assets/programVideos/Weights2.mp4';
+import Weights3 from '../../src/assets/programVideos/Weights3.mp4';
+
+import Calisthenics1 from '../../src/assets/programVideos/Calisthenics1.mp4';
+import Calisthenics2 from '../../src/assets/programVideos/Calisthenics2.mp4';
+import Calisthenics3 from '../../src/assets/programVideos/Calisthenics3.mp4';
+
+import Stretching1 from '../../src/assets/programVideos/Stretching1.mp4';
+import Stretching2 from '../../src/assets/programVideos/Stretching2.mp4';
+import Stretching3 from '../../src/assets/programVideos/Stretching3.mp4';
 
 export default {
     data() {
@@ -19,24 +34,24 @@ export default {
             currentProgram: localStorage.getItem("program"),
             videoSources: {
                 HIIT: [
-                    "../src/assets/programVideos/HIIT1.mp4",
-                    "../src/assets/programVideos/HIIT2.mp4",
-                    "../src/assets/programVideos/HIIT3.mp4",
+                    HIIT1,
+                    HIIT2,
+                    HIIT3,
                 ],
                 Weights: [
-                    "../src/assets/programVideos/Weights1.mp4",
-                    "../src/assets/programVideos/Weights2.mp4",
-                    "../src/assets/programVideos/Weights3.mp4",
+                    Weights1,
+                    Weights2,
+                    Weights3,
                 ],
                 Calisthenics: [
-                    "../src/assets/programVideos/Calisthenics1.mp4",
-                    "../src/assets/programVideos/Calisthenics2.mp4",
-                    "../src/assets/programVideos/Calisthenics3.mp4",
+                    Calisthenics1,
+                    Calisthenics2,
+                    Calisthenics3,
                 ],
                 Stretching: [
-                    "../src/assets/programVideos/Stretching1.mp4",
-                    "../src/assets/programVideos/Stretching2.mp4",
-                    "../src/assets/programVideos/Stretching3.mp4",
+                    Stretching1,
+                    Stretching2,
+                    Stretching3,
                 ],
             },
         };
@@ -55,7 +70,7 @@ export default {
     },
     methods: {
         nextExercise() {
-            
+
             if (this.currentVideoIndex < this.videoSources[this.currentProgram].length) {
                 this.currentVideoIndex++;
             } else {
@@ -65,7 +80,7 @@ export default {
                 this.quitProgram();
             }
             localStorage.setItem('buttonPressed', 'true');
-            
+
         },
         quitProgram() {
             window.location.href = "/rating";

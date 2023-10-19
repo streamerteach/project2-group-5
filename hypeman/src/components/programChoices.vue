@@ -32,31 +32,35 @@
 <script>
 import musicdropdown from './musicdropdown.vue';
 import usertitle from './userTitle.vue';
+import hiit from '../../src/assets/HIIT.svg';
+import weights from '../../src/assets/weights.svg';
+import calisthenics from '../../src/assets/calisthenics.svg';
+import stretching from '../../src/assets/stretching.svg';
 export default {
     data() {
         return {
             programChoices: [
                 {
                     link: '/programpreview',
-                    image: '/src/assets/HIIT.svg',
+                    image: hiit,
                     program: 'HIIT',
                 },
                 {
                     link: '/programpreview',
-                    image: '/src/assets/weights.svg',
+                    image: weights ,
                     program: 'Weights',
                 },
                 {
                     link: '/programpreview',
-                    image: '/src/assets/calisthenics.svg',
+                    image: calisthenics,
                     program: 'Calisthenics',
                 },
                 {
                     link: '/programpreview',
-                    image: '/src/assets/stretching.svg',
+                    image: stretching,
                     program: 'Stretching',
                 },
-                // Add more program choices here
+                
             ],
         };
     },

@@ -32,15 +32,39 @@
 <script>
 import { getExerciseDescription } from "@/utils.js";
 import backbutton from './backbutton.vue';
+import hiit from '../../src/assets/HIIT.svg';
+import weights from '../../src/assets/weights.svg';
+import calisthenics from '../../src/assets/calisthenics.svg';
+import stretching from '../../src/assets/stretching.svg';
 
 export default {
     components: {
         backbutton,
     },
     data() {
+        const program = localStorage.getItem("program");
+        let programIcon;
+
+        switch (program) {
+            case "HIIT":
+                programIcon = hiit;
+                break;
+            case "Weights":
+                programIcon = weights;
+                break;
+            case "Calisthenics":
+                programIcon = calisthenics;
+                break;
+            case "Stretching":
+                programIcon = stretching;
+                break;
+            default:
+                programIcon = null; // Handle the default case if needed
+        }
         return {
-            program: localStorage.getItem("program"),
-            programIcon: "../src/assets/" + localStorage.getItem("program") + ".svg",
+
+            program,
+            programIcon,
 
         };
     },
