@@ -1,30 +1,35 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import index from './components/index.vue';
+import rating from './components/rating.vue';
+import programpreview from './components/programPreview.vue';
+import programChoices from './components/programChoices.vue';
+import program from './components/program.vue';
 
 const routes = [
     {
         path: '/',
         name: 'index',
-        component: () => import('./components/index.vue'),
+        component: index,
     },
     {
         path: '/rating',
         name: 'Rating',
-        component: () => import('./components/rating.vue'),
+        component: rating,
     },
     {
         path: '/programpreview',
         name: 'ProgramPreview',
-        component: () => import('./components/programPreview.vue'),
+        component: programpreview,
     },
     {
         path: '/programchoices',
         name: 'ProgramChoices',
-        component: () => import('./components/programChoices.vue'),
+        component: programChoices,
     },
     {
         path: '/program',
         name: 'Program',
-        component: () => import('./components/program.vue'),
+        component: program,
     },
 ];
 
