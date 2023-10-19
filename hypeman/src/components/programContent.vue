@@ -68,7 +68,7 @@ export default {
             
         },
         quitProgram() {
-            window.location.href = "rating.html";
+            window.location.href = "/rating";
             localStorage.setItem('buttonPressed', 'false');
         },
     },

@@ -1,16 +1,28 @@
 <template>
-    <div class="centerComponent">
-        <h2>Overall rating:</h2>
-        <div class="rating">
-            <span v-for="star in 5" :key="star" @click="setRating(star)"
-                :class="{ 'rated': star <= currentRating, 'unrated': star > currentRating }">
-                ★
-            </span>
+    <div>
+        <div class="tab">
+            <div id="app">
+                <div>
+                    <div class="centerComponent">
+                        <h2>Overall rating:</h2>
+                        <div class="rating">
+                            <span v-for="star in 5" :key="star" @click="setRating(star)"
+                                :class="{ 'rated': star <= currentRating, 'unrated': star > currentRating }">
+                                ★
+                            </span>
+                        </div>
+                        <!-- only show this when localstorage key program is not stretching -->
+                        <p v-if="program !== 'Stretching'">Your difficulty rating for the {{ program }} program was: </p>
+                        <p v-if="program !== 'Stretching'" class="difficultyLevel">{{ getProgramDifficultyRating(program)
+                        }}/5</p>
+                        <button class="submitButton" @click="submitRating">Submit</button>
+                    </div>
+                </div>
+
+                <div id="footer">
+                </div>
+            </div>
         </div>
-        <!-- only show this when localstorage key program is not stretching -->
-        <p v-if="program !== 'Stretching'">Your difficulty rating for the {{ program }} program was: </p>
-        <p v-if="program !== 'Stretching'" class="difficultyLevel">{{ getProgramDifficultyRating(program) }}/5</p>
-        <button class="submitButton" @click="submitRating">Submit</button>
     </div>
 </template>
   
@@ -61,7 +73,7 @@ export default {
                 this[this.program + 'DifficultyRating']--;
                 localStorage.setItem(`${this.program}DifficultyRating`, this.getProgramDifficultyRating(this.program));
             }
-            window.location.href = 'programChoices.html';
+            window.location.href = '/programchoices';
         },
     },
 };

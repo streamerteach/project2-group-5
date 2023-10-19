@@ -1,15 +1,69 @@
 <template>
-    <a :href="link" id="link" @click.prevent="saveProgram">
-        <div id="program">
-            <img :src="image">
-            <h1> {{ program }} </h1>
+    <div>
+        <div class="tab">
+            <div id="app">
+                <div id="header">
+                    <usertitle v-model="text" text="Welcome "></usertitle>
+                </div>
+                <div id="body">
+                    <h2>Select an exercise plan:</h2>
+
+                    <div id="row">
+                        <a v-for="choice in programChoices" :key="choice.program" :href="choice.link" id="link"
+                            @click.prevent="saveProgram(choice.program)">
+                            <div id="program">
+                                <img :src="choice.image" alt="program icon" />
+                                <h1>{{ choice.program }}</h1>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="musicContainer">
+                        <p id="chooseMusic">Choose your music</p>
+                        <musicdropdown></musicdropdown>
+                    </div>
+                </div>
+                <div id="footer">
+                </div>
+            </div>
         </div>
-    </a>
+    </div>
 </template>
-
+  
 <script>
-
+import musicdropdown from './musicdropdown.vue';
+import usertitle from './userTitle.vue';
 export default {
+    data() {
+        return {
+            programChoices: [
+                {
+                    link: '/programpreview',
+                    image: '/src/assets/HIIT.svg',
+                    program: 'HIIT',
+                },
+                {
+                    link: '/programpreview',
+                    image: '/src/assets/weights.svg',
+                    program: 'Weights',
+                },
+                {
+                    link: '/programpreview',
+                    image: '/src/assets/calisthenics.svg',
+                    program: 'Calisthenics',
+                },
+                {
+                    link: '/programpreview',
+                    image: '/src/assets/stretching.svg',
+                    program: 'Stretching',
+                },
+                // Add more program choices here
+            ],
+        };
+    },
+    components: {
+        musicdropdown,
+        usertitle,
+    },
     props: {
         link: {
             type: String,
@@ -25,9 +79,9 @@ export default {
         }
     },
     methods: {
-        saveProgram() {
-            localStorage.setItem('program', this.program);
-            window.location.href = this.link;
+        saveProgram(program) {
+            localStorage.setItem('program', program);
+            window.location.href = '/programpreview';
         }
     }
 }
@@ -48,20 +102,28 @@ export default {
     border: 1px solid rgb(134, 134, 134);
     border-radius: 10px;
     background-color: rgb(250, 250, 250);
-    transition: 0.3s; 
+    transition: 0.3s;
 }
 
-#program:hover{
+#program:hover {
     animation: shake 0.5s;
     animation-iteration-count: infinite;
     cursor: pointer;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 @keyframes shake {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(0, -10px); }
-    100% { transform: translate(0, 0); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(0, -10px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
 }
 
 #program h1 {
@@ -95,5 +157,4 @@ export default {
     height: 20vh;
     margin-top: 2vh;
 }
-
 </style>
