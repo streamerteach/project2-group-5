@@ -2,7 +2,6 @@
     <h1>{{ programName }}</h1>
     <video ref="videoPlayer" :src="currentVideoSource" autoplay loop></video>
     <p class="video-description">{{ currentDescription }}</p>
-   
     <button class="button" @click="nextExercise">Next</button>
    
 </template>
