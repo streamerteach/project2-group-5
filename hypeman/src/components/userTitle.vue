@@ -17,7 +17,5 @@ export default {
       username: localStorage.getItem('username')
     }
   }
-
-  
 }
 </script>

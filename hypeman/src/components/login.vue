@@ -1,12 +1,6 @@
 <template>
   <div class="login-container">
-    <input
-      :value="text"
-      @input="handleInput"
-      @focus="audioPlay"
-      class="login-input"
-      required
-    />
+    <input :value="text" @input="handleInput" @focus="audioPlay" class="login-input" required />
   </div>
 </template>
 
@@ -18,7 +12,7 @@ const username = localStorage.getItem("username");
 export default {
   data() {
     return {
-      text: username, 
+      text: username,
     };
   },
   methods: {
@@ -31,9 +25,9 @@ export default {
     //spelar upp ljud när man klickar i inputfältet
     audioPlay() {
       const audio = new Audio(loginPageAudio);
-      if(playTimes === 0) {
-      audio.play();
-      playTimes++;
+      if (playTimes === 0) {
+        audio.play();
+        playTimes++;
       }
     },
   },

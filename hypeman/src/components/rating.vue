@@ -1,27 +1,16 @@
 <template>
-    <div>
-        <div class="tab">
-            <div id="app">
-                <div>
-                    <div class="centerComponent">
-                        <h2>Overall rating:</h2>
-                        <div class="rating">
-                            <span v-for="star in 5" :key="star" @click="setRating(star)"
-                                :class="{ 'rated': star <= currentRating, 'unrated': star > currentRating }">
-                                ★
-                            </span>
-                        </div>
-                        <!-- only show this when localstorage key program is not stretching -->
-                        <p v-if="program !== 'Stretching'">Your difficulty rating for the {{ program }} program was: </p>
-                        <p v-if="program !== 'Stretching'" class="difficultyLevel">{{ getProgramDifficultyRating(program)
-                        }}/5</p>
-                        <button class="submitButton" @click="submitRating">Submit</button>
-                    </div>
-                </div>
-
-                <div id="footer">
-                </div>
+    <div class="tab">
+        <div class="centerComponent">
+            <h2>Overall rating:</h2>
+            <div class="rating">
+                <span v-for="star in 5" :key="star" @click="setRating(star)"
+                    :class="{ 'rated': star <= currentRating, 'unrated': star > currentRating }">
+                    ★
+                </span>
             </div>
+            <p v-if="program !== 'Stretching'">Your difficulty rating for the {{ program }} program was: </p>
+            <p v-if="program !== 'Stretching'" class="difficultyLevel">{{ getProgramDifficultyRating(program)}}/5</p>
+            <button class="submitButton" @click="submitRating">Submit</button>
         </div>
     </div>
 </template>

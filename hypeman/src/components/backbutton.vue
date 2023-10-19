@@ -1,7 +1,5 @@
 <template>
-<div>
   <button @click="goBack()" class="backButton">Go back</button>
-</div>
 </template>
 
 <script>

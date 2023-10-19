@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <select v-model="selected" @change="onChange($event)">
-      <option disabled value="">Please select one</option>
-      <option value="hardcore">Hardcore</option>
-      <option value="inspirational">Inspirational</option>
-      <option value="national">National</option>
-    </select>
-  </div>
+  <select v-model="selected" @change="onChange($event)">
+    <option disabled value="">Please select one</option>
+    <option value="hardcore">Hardcore</option>
+    <option value="inspirational">Inspirational</option>
+    <option value="national">National</option>
+  </select>
 </template>
 
 <script>

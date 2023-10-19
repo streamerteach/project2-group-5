@@ -3,7 +3,6 @@
     <p v-if="timerRunning">Timer: {{ Math.floor(currentTime / 60) }}m {{ currentTime % 60 }}s</p>
     <p v-else>Timer Stopped</p>
   </div>
-  
 </template>
 <script>
 
@@ -21,7 +20,7 @@ import motivation10 from '../assets/motivation/motivation10.mp3';
 
 
 export default {
-  
+
   data() {
     return {
       timerRunning: false,
@@ -40,34 +39,28 @@ export default {
     },
   },
   methods: {
-    
-    startTimer(hours) {
-      if (this.timerRunning) {
-        clearInterval(this.timer);
-      }
 
+    startTimer(hours) { //timer componenten
+     
       this.startTime = hours * 60;
       this.currentTime = this.startTime;
       this.timerRunning = true;
-      
 
+      this.timer = setInterval(() => {//intervaler på 1 sekund
+        if (localStorage.getItem('buttonPressed') === 'true') { //om man klickar på next startar timern om
 
-
-      this.timer = setInterval(() => {
-        if (localStorage.getItem('buttonPressed') === 'true') {
-          
           console.log('Button has been pressed!');
-          
+
           this.currentTime = this.startTime;
-          
+
           localStorage.setItem('buttonPressed', 'false');
         }
-        if (this.currentTime <= 0) {
+        if (this.currentTime <= 0) { //stoppar timer då den tar slut
           this.currentTime = this.startTime;
-        } else {
-          
+        } else {// timern räknar ner
+
           this.currentTime--;
-          if (this.currentTime % 20 === 0) {
+          if (this.currentTime % 20 === 0) {// spelar random motivations ljud varje 20 sec
 
             this.playRandomMotivationSound();
           }
@@ -75,25 +68,25 @@ export default {
       }, 1000);
     },
 
-    playRandomMotivationSound() {
-      // Array of motivation sounds
+    playRandomMotivationSound() { //funktion för att få ett random ljud och sen spela det.
+
       const motivationSounds = [
         motivation1, motivation2, motivation3, motivation4, motivation5,
         motivation6, motivation7, motivation8, motivation9, motivation10,
       ];
 
-      // Play a random motivation sound
+
       const randomSoundIndex = Math.floor(Math.random() * motivationSounds.length);
       const audio = new Audio(motivationSounds[randomSoundIndex]);
       audio.play();
     },
   },
   created() {
-    
+
     this.startTimer(1);
 
-    
-  
+
+
   },
 
 };

@@ -1,7 +1,3 @@
-<template>
-
-</template>
-
 <script>
 import song from "../assets/music/national.mp3";
 import hardcore from "../assets/music/hardcore.mp3";

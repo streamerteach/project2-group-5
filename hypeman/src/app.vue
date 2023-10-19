@@ -6,10 +6,10 @@
   
   <script>
   export default {
-    // Your component logic
+    
   }
   </script>
   
   <style>
-  /* Your global styles here */
+
   </style>

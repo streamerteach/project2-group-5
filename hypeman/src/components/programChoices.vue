@@ -1,35 +1,30 @@
 <template>
-    <div>
-        <div class="tab">
-            <div id="app">
-                <div id="header">
-                    <usertitle v-model="text" text="Welcome "></usertitle>
-                </div>
-                <div id="body">
-                    <h2>Select an exercise plan:</h2>
+    <div class="tab">
+        <div id="header">
+            <usertitle v-model="text" text="Welcome "></usertitle>
+        </div>
+        <div id="body">
+            <h2>Select an exercise plan:</h2>
 
-                    <div id="row">
-                        <a v-for="choice in programChoices" :key="choice.program" :href="choice.link" id="link"
-                            @click.prevent="saveProgram(choice.program)">
-                            <div id="program">
-                                <img :src="choice.image" alt="program icon" />
-                                <h1>{{ choice.program }}</h1>
-                            </div>
-                        </a>
+            <div id="row">
+                <a v-for="choice in programChoices" :key="choice.program" :href="choice.link" id="link"
+                    @click.prevent="saveProgram(choice.program)">
+                    <div id="program">
+                        <img :src="choice.image" alt="program icon" />
+                        <h1>{{ choice.program }}</h1>
                     </div>
-                    <div class="musicContainer">
-                        <p id="chooseMusic">Choose your music</p>
-                        <musicdropdown></musicdropdown>
-                    </div>
-                </div>
-                <div id="footer">
-                </div>
+                </a>
+            </div>
+            <div class="musicContainer">
+                <p id="chooseMusic">Choose your music</p>
+                <musicdropdown></musicdropdown>
             </div>
         </div>
     </div>
 </template>
   
 <script>
+//imports
 import musicdropdown from './musicdropdown.vue';
 import usertitle from './userTitle.vue';
 import hiit from '../../src/assets/HIIT.svg';
@@ -39,7 +34,7 @@ import stretching from '../../src/assets/stretching.svg';
 export default {
     data() {
         return {
-            programChoices: [
+            programChoices: [ //dynamiskt object för att få in valen igenom en loop
                 {
                     link: '/programpreview',
                     image: hiit,
@@ -47,7 +42,7 @@ export default {
                 },
                 {
                     link: '/programpreview',
-                    image: weights ,
+                    image: weights,
                     program: 'Weights',
                 },
                 {
@@ -60,7 +55,7 @@ export default {
                     image: stretching,
                     program: 'Stretching',
                 },
-                
+
             ],
         };
     },
@@ -83,7 +78,7 @@ export default {
         }
     },
     methods: {
-        saveProgram(program) {
+        saveProgram(program) { //metod för att spara program och skicka vidare en
             localStorage.setItem('program', program);
             window.location.href = '/programpreview';
         }
