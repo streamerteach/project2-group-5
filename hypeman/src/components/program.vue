@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Timer from './Timer.vue';
+import Timer from './timer.vue';
 import programContent from './programContent.vue';
 import backbutton from './backbutton.vue';
 import musicplayer from './musicPlayer.vue';
