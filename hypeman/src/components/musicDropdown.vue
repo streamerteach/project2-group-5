@@ -13,23 +13,22 @@
 export default {
   data() {
     return {
-      selected: ""
+      selected: "",
     };
   },
-  mounted() { 
-  
+  mounted() {
     const storedValue = localStorage.getItem("music");
-    
-  
+
+    //Om det finns en lagrad value i localstorage så sätts den som selected
     if (storedValue) {
       this.selected = storedValue;
     }
   },
   methods: {
     onChange(event) {
-      localStorage.setItem("music", event.target.value);
-    }
-  }
+      localStorage.setItem("music", event.target.value); //Sparar vald musik i localstorage
+    },
+  },
 };
 </script>
 
@@ -39,7 +38,5 @@ select {
   height: 2em;
   font-size: 1em;
   border-radius: 10px;
-
- 
 }
 </style>
