@@ -26,7 +26,7 @@ import backbutton from './backbutton.vue';
 import hiit from '../../src/assets/HIIT.svg';
 import weights from '../../src/assets/weights.svg';
 import calisthenics from '../../src/assets/calisthenics.svg';
-import stretching from '../../src/assets/.svg';
+import stretching from '../../src/assets/stretching.svg';
 
 export default {
     components: {
