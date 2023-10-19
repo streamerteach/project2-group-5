@@ -9,22 +9,22 @@ const routes = [
     {
         path: '/rating',
         name: 'Rating',
-        component: () => import('./components/Rating.vue'),
+        component: () => import('./components/rating.vue'),
     },
     {
         path: '/programpreview',
         name: 'ProgramPreview',
-        component: () => import('./components/ProgramPreview.vue'),
+        component: () => import('./components/programPreview.vue'),
     },
     {
         path: '/programchoices',
         name: 'ProgramChoices',
-        component: () => import('./components/ProgramChoices.vue'),
+        component: () => import('./components/programChoices.vue'),
     },
     {
         path: '/program',
         name: 'Program',
-        component: () => import('./components/Program.vue'),
+        component: () => import('./components/program.vue'),
     },
 ];
 
